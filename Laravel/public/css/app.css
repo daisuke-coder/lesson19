@@ -1,0 +1,27 @@
+.page-header {
+  text-align: center;
+}
+
+.page-name {
+  text-align: center;
+}
+
+.posts {
+  margin: 10px auto;
+  border: 1px solid blue;
+  border-radius: 8px;
+
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* small {
+  margin: 10px auto;
+} */
+
+footer {
+  text-align: center;
+}

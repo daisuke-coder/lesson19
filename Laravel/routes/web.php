@@ -23,3 +23,15 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('index','PostsController@index');
+
+Route::get('/post/{id}/update-form','PostsController@updateForm');
+
+Route::post('/post/update', 'PostsController@update');
+
+Route::get('create-form','PostsController@createForm');
+
+Route::post('post/create','PostsController@create');
+
+Route::get('/post/{id}/delete','PostsController@delete');
+
+Route::get('/search/{search?}','ProfileController@search')->name('search');

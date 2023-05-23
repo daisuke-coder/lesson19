@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class PostsController extends Controller
 {
@@ -22,10 +23,17 @@ class PostsController extends Controller
 
     public function create(Request $request)
     {
+        $rules=['newPost'=>'required|max:150'];
+        $validator=Validator::make($request->all(),$rules);
+
+        if($validator->fails()){
+            return redirect('/create-form')
+            ->withErrors($validator->errors())
+            ->withInput();
+        }
+
         $post=$request->input('newPost');
         $name=$request->input('newName');
-        $errormessage="120文字以内で入力してください";
-        $emptymessage="入力してください";
         DB::table('posts')->insert([
             'post'=>$post,
             'name'=>$name

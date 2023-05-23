@@ -4,13 +4,10 @@
   <?php echo Form::open(['url'=>'post/create']); ?>
 
   <div class="form-group">
-    <?php echo Form::input('text','newPost','',['class'=>'form-control','placeholder'=>'投稿内容(120文字以内)']); ?>
+    <?php echo Form::input('text','newPost','',['class'=>'form-control','placeholder'=>'投稿内容(150文字以内)']); ?>
 
-    <?php if(isset($errormessage)): ?>
-    <p class="error"><?php echo e($errormessage); ?></p>
-    <?php endif; ?>
-    <?php if(isset($emptymessage)): ?>
-    <p class="error"><?php echo e($emptymessage); ?></p>
+    <?php if($errors->has('newPost')): ?>
+    <p class="error"><?php echo e($errors->first('newPost')); ?></p>
     <?php endif; ?>
 
     <?php echo Form::hidden('newName',Auth::user()->name); ?>

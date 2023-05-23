@@ -12,8 +12,12 @@
       <p class="username">{{$list->name}}</p>
       <p class="tweet">{{$list->post}}</p>
       <p class="time">{{$list->created_at}}</p>
+      @if($authUser==$list->name)
       <p class="update"><a href="/post/{{$list->id}}/update-form" class="btn-update">編集</a></p>
+      @endif
+      @if($authUser==$list->name)
       <p class="delete"><a href="/post/{{$list->id}}/delete" class="delete-btn">削除</a></p>
+      @endif
     </div>
     @endforeach
   </div>

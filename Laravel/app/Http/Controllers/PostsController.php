@@ -7,13 +7,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
+use Illuminate\Support\Facades\Auth;
+
 class PostsController extends Controller
 {
     //
     public function index(Request $request)
     {
+        $authUser=Auth::user()->name;
         $list=DB::table('posts')->get();
-        return view('posts.index',compact('list'));
+        return view('posts.index',compact('list','authUser'));
     }
 
     public function createForm(Request $request)
@@ -54,8 +57,13 @@ class PostsController extends Controller
     {
         $id=$request->input('id');
         $up_post=$request->input('upPost');
-        $errormessage="120文字以内で入力してください";
-        $emptymessage="入力してください";
+        $rules=['upPost'=>'required|max:150'];
+        $validator=Validator::make($request->all(),$rules);
+        if($validator->fails()){
+            return redirect('/post/'.$id.'/update-form')
+            ->withErrors($validator->errors())
+            ->withInput();
+        }
 
         DB::table('posts')
         ->where('id',$id)

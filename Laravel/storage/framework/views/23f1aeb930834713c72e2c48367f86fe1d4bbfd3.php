@@ -9,8 +9,12 @@
       <p class="username"><?php echo e($list->name); ?></p>
       <p class="tweet"><?php echo e($list->post); ?></p>
       <p class="time"><?php echo e($list->created_at); ?></p>
+      <?php if($authUser==$list->name): ?>
       <p class="update"><a href="/post/<?php echo e($list->id); ?>/update-form" class="btn-update">編集</a></p>
+      <?php endif; ?>
+      <?php if($authUser==$list->name): ?>
       <p class="delete"><a href="/post/<?php echo e($list->id); ?>/delete" class="delete-btn">削除</a></p>
+      <?php endif; ?>
     </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   </div>

@@ -3,12 +3,12 @@
 @section('content')
 
 <div class="container">
+  <h2 class="page-name">投稿編集</h2>
   {!! Form::open(['url'=>'/post/update']) !!}
   <div class="form-group">
-    <h2 class="page-name">投稿編集</h2>
-    {!!Form::input('text','upPost',$post->post,['required','class'=>'form-control','placeholder'=>'投稿内容(120文字以内)'])!!}
-    @if($errors->has('newPost'))
-    <p class="error">{{$error->first('newPost')}}</p>
+    {!!Form::input('text','upPost',$post->post,['class'=>'form-control','placeholder'=>'投稿内容(150文字以内)'])!!}
+    @if($errors->has('upPost'))
+    <p class="error">{{$errors->first('upPost')}}</p>
     @endif
     {!! Form::hidden('id',$post->id) !!}
   </div>

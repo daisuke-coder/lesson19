@@ -36,4 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function follows()
+    {
+        return $this->belongsToMany('App\User','follows','user_id','followed_user_id');
+    }
+
 }

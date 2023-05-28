@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\FollowController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,4 +35,11 @@ Route::post('post/create','PostsController@create');
 
 Route::get('/post/{id}/delete','PostsController@delete');
 
+Route::get('/board', [UserController::class, 'index']);
+
 Route::get('/search/{search?}','ProfileController@search')->name('search');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::post('/follow/{userId}', [ FollowController::class, 'store']);
+     Route::post('/follow/{userId}/destroy', [ FollowController::class, 'destroy']);
+});

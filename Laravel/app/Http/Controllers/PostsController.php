@@ -15,7 +15,11 @@ class PostsController extends Controller
     public function index(Request $request)
     {
         $authUser=Auth::user()->name;
+
         $list=DB::table('posts')->get();
+        // $user=User::where('name',$list->name)
+        // ->first();
+        // $userId=Auth::id();
         return view('posts.index',compact('list','authUser'));
     }
 
@@ -35,11 +39,13 @@ class PostsController extends Controller
             ->withInput();
         }
 
+        $userId=Auth::id();
         $post=$request->input('newPost');
         $name=$request->input('newName');
         DB::table('posts')->insert([
             'post'=>$post,
-            'name'=>$name
+            'name'=>$name,
+            'user_id'=>$userId
         ]);
         return redirect('/index');
 

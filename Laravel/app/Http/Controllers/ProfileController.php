@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Auth;
 
+use App\Follow;
+
+use App\User;
+
 class ProfileController extends Controller
 {
 
@@ -34,5 +38,23 @@ class ProfileController extends Controller
     }
 
     return view('search',compact('search','uList','authUser'));
+  }
+
+  public function profile(Request $request,$user_id)
+  {
+    $authUser=Auth::user()->name;
+    $profile=DB::table('users')
+    ->where('id',$user_id)
+    ->first();
+
+    $followCount=DB::table('follows')
+    ->where('user_id',$user_id)
+    ->count();
+
+    $followerCount=DB::table('follows')
+    ->where('followed_user_id',$user_id)
+    ->count();
+
+    return view('profile',compact('user_id','authUser','profile','followCount','followerCount'));
   }
 }

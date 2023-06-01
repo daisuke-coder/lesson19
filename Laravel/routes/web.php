@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FollowController;
+use App\Http\Controllers\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,3 +44,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/follow/{userId}', [ FollowController::class, 'store']);
      Route::post('/follow/{userId}/destroy', [ FollowController::class, 'destroy']);
 });
+
+Route::get('/profile/{user_id}','ProfileController@profile');

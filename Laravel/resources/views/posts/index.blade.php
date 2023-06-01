@@ -8,7 +8,7 @@
         <div class="timeline">
             @foreach ($list as $list)
                 <div class="posts">
-                    <p class="username">{{ $list->name }}</p>
+                    <p class="username"><a href="/profile/{{$list->user_id}}" class="username">{{ $list->name }}</a></p>
                     <p class="tweet">{{ $list->post }}</p>
                     <p class="time">{{ $list->created_at }}</p>
                     @if ($authUser == $list->name)

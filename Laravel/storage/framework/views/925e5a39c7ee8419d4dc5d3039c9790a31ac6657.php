@@ -15,7 +15,7 @@
             <?php endif; ?>
             <?php $__currentLoopData = $uList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $uList): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="user">
-                    <p class="name"><a href="/search/<?php echo e($uList->id); ?>" class="name"><?php echo e($uList->name); ?></a></p>
+                    <p class="name"><a href="/profile/<?php echo e($uList->id); ?>" class="name"><?php echo e($uList->name); ?></a></p>
                     <p class="pro-text"><?php echo e($uList->profile); ?></p>
                     <button onclick="follow(<?php echo e($uList->id); ?>)">フォローする</button>
                     <button onclick="unFollow(<?php echo e($uList->id); ?>)">フォロー解除</button>

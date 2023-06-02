@@ -15,7 +15,7 @@
             @endif
             @foreach ($uList as $uList)
                 <div class="user">
-                    <p class="name"><a href="/search/{{ $uList->id }}" class="name">{{ $uList->name }}</a></p>
+                    <p class="name"><a href="/profile/{{ $uList->id }}" class="name">{{ $uList->name }}</a></p>
                     <p class="pro-text">{{ $uList->profile }}</p>
                     <button onclick="follow({{ $uList->id }})">フォローする</button>
                     <button onclick="unFollow({{ $uList->id }})">フォロー解除</button>

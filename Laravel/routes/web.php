@@ -45,4 +45,8 @@ Route::group(['middleware' => 'auth'], function () {
      Route::post('/follow/{userId}/destroy', [ FollowController::class, 'destroy']);
 });
 
-Route::get('/profile/{user_id}','ProfileController@profile');
+Route::get('/profile/{user_id}','ProfileController@profile')->name('profile');
+
+Route::get('/follower-list/{user_id}','ProfileController@follower');
+
+Route::get('/follow-list/{user_id}','ProfileController@follow');

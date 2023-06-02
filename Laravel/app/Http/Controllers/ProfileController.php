@@ -57,4 +57,34 @@ class ProfileController extends Controller
 
     return view('profile',compact('user_id','authUser','profile','followCount','followerCount'));
   }
+
+  public function follower(Request $request,$user_id)
+  {
+    $fId=DB::table('follows')
+    ->where('followed_user_id',$user_id)
+    ->pluck('user_id')
+    ->toArray();
+    // ↑followsテーブルのfollowed_user_idと$useridが一致するものを配列に追加
+    $followerList=DB::table('users')
+    ->whereIn('id',$fId)
+    ->get();
+
+    return view('followerList', compact('followerList', 'user_id'));
+    // return view('/follower-list/'.$user_id',compact('followerList','user_id'));
+
+  }
+
+  public function follow(Request $request,$user_id)
+  {
+    $fId=DB::table('follows')
+    ->where('user_id',$user_id)
+    ->pluck('user_id')
+    ->toArray();
+
+    $followList=DB::table('users')
+    ->whereIn('id',$fId)
+    ->get();
+
+    return view('followList', compact('followList', 'user_id'));
+  }
 }

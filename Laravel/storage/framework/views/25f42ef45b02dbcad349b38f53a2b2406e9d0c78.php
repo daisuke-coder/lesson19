@@ -18,7 +18,7 @@
       <li class="nav-item"><a href="<?php echo e(route('login')); ?>" class="nav-link"><?php echo e(__('Login')); ?></a></li>
       <li class="nav-item"><a href="<?php echo e(route('register')); ?>" class="nav-link"><?php echo e(__('登録')); ?></a></li>
       <?php else: ?>
-      <li class="nav-item"><a href="/profile" class="nav-link">ユーザー名：<?php echo e(Auth::user()->name); ?></a>
+      <li class="nav-item"><a href="<?php echo e(route('profile', ['user_id' => Auth::user()->id])); ?>" class="nav-link">ユーザー名：<?php echo e(Auth::user()->name); ?></a></li>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
        <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"onclick="event.preventDefault();
         document.getElementById('logout-form').submit();">

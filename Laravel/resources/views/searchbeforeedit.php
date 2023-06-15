@@ -25,5 +25,41 @@
     </div>
 @endsection
 
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script src="{{asset('js/follow.js')}}"></script> -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+    function follow(userId) {
+        $.ajax({
+
+                headers: {
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+                },
+                url: `/follow/${userId}`,
+                type: "POST",
+            })
+            .done((data) => {
+                console.log(data);
+            })
+            .fail((data) => {
+                console.log(data);
+            });
+    }
+
+    function unFollow(userId) {
+        $.ajax({
+
+                headers: {
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+                },
+                url: `/follow/${userId}/destroy`,
+                type: "POST",
+            })
+            .done((data) => {
+                console.log(data);
+            })
+            .fail((data) => {
+                console.log(data);
+            });
+    }
+</script>

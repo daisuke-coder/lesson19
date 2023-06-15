@@ -1,3 +1,4 @@
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 @extends('layouts.app')
 
 @section('content')
@@ -8,12 +9,8 @@
   @endif
   @foreach($followList as $followList)
   <div class="user-list">
-    <p class="f-user"><a href="/profile/{{$user_id}}" class="f-user">{{$followList->name}}</a></p>
-    <!-- <form action="/follow/{{$user_id}}" class="follow-form">
-      @if($isFollowing)
-      <button class="submit" type="submit">アンフォロー</button>
-    </form> -->
-    <!-- フォロー、アンフォローボタン -->
+    <p class="f-user"><a href="/profile/{{$followList->id}}" class="f-user">{{$followList->name}}</a></p>
+    <button onclick="unfollow({{$followList->id}})">フォロー解除</button>
   </div>
   @endforeach
 </div>

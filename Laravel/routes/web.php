@@ -50,3 +50,7 @@ Route::get('/profile/{user_id}','ProfileController@profile')->name('profile');
 Route::get('/follower-list/{user_id}','ProfileController@follower');
 
 Route::get('/follow-list/{user_id}','ProfileController@follow');
+
+Route::get('/profile/edit-form/{id}','ProfileController@editForm');
+
+Route::post('/profile/edit','ProfileController@edit');

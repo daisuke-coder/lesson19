@@ -1,3 +1,4 @@
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 @extends('layouts.app')
 
 @section('content')
@@ -8,7 +9,7 @@
   @endif
   @foreach($followerList as $followerList)
   <div class="user-list">
-    <p class="f-user"><a href="/profile/{{$user_id}}" class="f-user">{{$followerList->name}}</a></p>
+    <p class="f-user"><a href="/profile/{{$followerList->id}}" class="f-user">{{$followerList->name}}</a></p>
   </div>
   @endforeach
 </div>

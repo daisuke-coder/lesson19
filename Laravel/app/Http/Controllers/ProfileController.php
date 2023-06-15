@@ -55,7 +55,15 @@ class ProfileController extends Controller
     ->where('followed_user_id',$user_id)
     ->count();
 
-    return view('profile',compact('user_id','authUser','profile','followCount','followerCount'));
+    $isFollowing=false;
+    if(Auth::user()){
+      $isFollowing=DB::table('follows')
+      ->where('user_id',Auth::user()->id)
+      ->where('followed_user_id',$user_id)
+      ->exists();
+    }
+
+    return view('profile',compact('user_id','authUser','profile','followCount','followerCount','isFollowing'));
   }
 
   public function follower(Request $request,$user_id)
@@ -78,7 +86,7 @@ class ProfileController extends Controller
   {
     $fId=DB::table('follows')
     ->where('user_id',$user_id)
-    ->pluck('user_id')
+    ->pluck('followed_user_id')
     ->toArray();
 
     $followList=DB::table('users')
@@ -86,5 +94,24 @@ class ProfileController extends Controller
     ->get();
 
     return view('followList', compact('followList', 'user_id'));
+  }
+
+  public function editForm($id)
+  {
+    $profile=DB::table('users')
+    ->where('id',$id)
+    ->first();
+    return view('edit',compact('profile'));
+  }
+
+  public function edit(Request $request)
+  {
+    $id=$request->input('id');
+    $up_name=$request->input('upName');
+    $up_profile=$request->input('upProfile');
+    DB::table('users')
+    ->where('id',$id)
+    ->update(['name'=>$up_name,'profile'=>$up_profile]);
+    return redirect("/profile/{$id}");
   }
 }

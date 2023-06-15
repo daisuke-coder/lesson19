@@ -25,43 +25,7 @@
     </div>
 <?php $__env->stopSection(); ?>
 
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script>
-    function follow(userId) {
-        $.ajax({
-
-                headers: {
-                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
-                },
-                url: `/follow/${userId}`,
-                type: "POST",
-            })
-            .done((data) => {
-                console.log(data);
-            })
-            .fail((data) => {
-                console.log(data);
-            });
-    }
-
-    function unFollow(userId) {
-        $.ajax({
-
-                headers: {
-                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
-                },
-                url: `/follow/${userId}/destroy`,
-                type: "POST",
-            })
-            .done((data) => {
-                console.log(data);
-            })
-            .fail((data) => {
-                console.log(data);
-            });
-    }
-</script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="<?php echo e(asset('js/follow.js')); ?>"></script> -->
 
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/MAMP/htdocs/Laravel_lesson19/Laravel/resources/views/search.blade.php ENDPATH**/ ?>

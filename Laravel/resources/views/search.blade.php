@@ -17,13 +17,10 @@
                 <div class="user">
                     <p class="name"><a href="/profile/{{ $uList->id }}" class="name">{{ $uList->name }}</a></p>
                     <p class="pro-text">{{ $uList->profile }}</p>
-                    <button onclick="follow({{ $uList->id }})">フォローする</button>
-                    <button onclick="unFollow({{ $uList->id }})">フォロー解除</button>
+                    <a class="btn btn-primary" href="/follow/{{ $uList->id }}/following">フォロー</a>
+                    <a class="btn btn-primary" href="/follow/{{ $uList->id }}/unfollowing">フォロー解除</a>
                 </div>
             @endforeach
         </div>
     </div>
 @endsection
-
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script src="{{asset('js/follow.js')}}"></script> -->

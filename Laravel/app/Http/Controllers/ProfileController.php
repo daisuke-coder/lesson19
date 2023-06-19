@@ -28,16 +28,29 @@ class ProfileController extends Controller
       $uList=DB::table('users')
       ->where('name','like','%'.$search.'%')
       ->where('name','!=',$authUser)
+      // ↑自分以外のユーザーを探す
       ->get();
       if($search==" "){
         $uList=DB::table('users')->get();
       }
     }
     else{
-      $uList=DB::table('users')->get();
+      $uList=DB::table('users')
+      ->where('name','!=',$authUser)
+      ->get();
     }
 
-    return view('search',compact('search','uList','authUser'));
+    $isFollowing=[];
+    if(Auth::user()){
+      foreach($uList as $user){
+      $isFollowing[$user->id]=DB::table('follows')
+      ->where('user_id',Auth::user()->id)
+      ->where('followed_user_id',$user->id)
+      ->exists();
+      }
+    }
+
+    return view('search',compact('search','uList','authUser','isFollowing'));
   }
 
   public function profile(Request $request,$user_id)

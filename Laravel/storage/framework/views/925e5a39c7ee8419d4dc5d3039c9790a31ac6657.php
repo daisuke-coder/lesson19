@@ -13,19 +13,21 @@
             <?php if($uList->isEmpty()): ?>
                 <p class="error">検索結果は0件です。</p>
             <?php endif; ?>
-            <?php $__currentLoopData = $uList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $uList): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php $__currentLoopData = $uList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="user">
-                    <p class="name"><a href="/profile/<?php echo e($uList->id); ?>" class="name"><?php echo e($uList->name); ?></a></p>
-                    <p class="pro-text"><?php echo e($uList->profile); ?></p>
-                    <button onclick="follow(<?php echo e($uList->id); ?>)">フォローする</button>
-                    <button onclick="unFollow(<?php echo e($uList->id); ?>)">フォロー解除</button>
+                    <p class="name"><a href="/profile/<?php echo e($user->id); ?>" class="name"><?php echo e($user->name); ?></a></p>
+                    <p class="pro-text"><?php echo e($user->profile); ?></p>
+                    <?php if($isFollowing[$user->id]): ?>
+                    <!-- ↑フォローしているユーザーの場合 -->
+                    <a class="btn btn-primary" href="/follow/<?php echo e($user->id); ?>/unfollowing">フォロー解除</a>
+                    <?php else: ?>
+                    <!-- ↑フォローしていないユーザーの場合 -->
+                    <a class="btn btn-primary" href="/follow/<?php echo e($user->id); ?>/following">フォロー</a>
+                    <?php endif; ?>
                 </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
     </div>
 <?php $__env->stopSection(); ?>
-
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script src="<?php echo e(asset('js/follow.js')); ?>"></script> -->
 
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/MAMP/htdocs/Laravel_lesson19/Laravel/resources/views/search.blade.php ENDPATH**/ ?>

@@ -13,12 +13,17 @@
             @if ($uList->isEmpty())
                 <p class="error">検索結果は0件です。</p>
             @endif
-            @foreach ($uList as $uList)
+            @foreach ($uList as $user)
                 <div class="user">
-                    <p class="name"><a href="/profile/{{ $uList->id }}" class="name">{{ $uList->name }}</a></p>
-                    <p class="pro-text">{{ $uList->profile }}</p>
-                    <a class="btn btn-primary" href="/follow/{{ $uList->id }}/following">フォロー</a>
-                    <a class="btn btn-primary" href="/follow/{{ $uList->id }}/unfollowing">フォロー解除</a>
+                    <p class="name"><a href="/profile/{{ $user->id }}" class="name">{{ $user->name }}</a></p>
+                    <p class="pro-text">{{ $user->profile }}</p>
+                    @if($isFollowing[$user->id])
+                    <!-- ↑フォローしているユーザーの場合 -->
+                    <a class="btn btn-primary" href="/follow/{{ $user->id }}/unfollowing">フォロー解除</a>
+                    @else
+                    <!-- ↑フォローしていないユーザーの場合 -->
+                    <a class="btn btn-primary" href="/follow/{{ $user->id }}/following">フォロー</a>
+                    @endif
                 </div>
             @endforeach
         </div>

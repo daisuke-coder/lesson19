@@ -15,8 +15,10 @@
                     </p>
                     <p class="pro-text">{{ $followList->profile }}</p>
                     <div class="btn-box-follow">
-                        <a class="btn btn-primary btn-unfollow" href="/follow/{{ $followList->id }}/unfollowing"
-                            onclick="return confirm('{{ $followList->name }}のフォローを解除しますか？')">フォロー解除</a>
+                        @if (Auth::user()->id != $followList->id)
+                            <a class="btn btn-primary btn-unfollow" href="/follow/{{ $followList->id }}/unfollowing"
+                                onclick="return confirm('{{ $followList->name }}のフォローを解除しますか？')">フォロー解除</a>
+                        @endif
                     </div>
                 </div>
             @endforeach

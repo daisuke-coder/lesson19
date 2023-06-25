@@ -84,7 +84,7 @@ nav {
     text-decoration: none;
 }
 
-.rogout-btn {
+.logout-btn {
     border: 0;
     border-radius: 4px;
     color: #fff;
@@ -260,7 +260,7 @@ h2 {
     border: 0;
     border-radius: 4px;
     color: #fff;
-    padding: 0 40px;
+    padding: 0 30px;
     background-color: #4169e1;
     cursor: pointer;
     font-size: 20px;

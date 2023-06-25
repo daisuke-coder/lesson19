@@ -1,7 +1,7 @@
-<meta name="csrf-token" content="{{ csrf_token() }}" />
 @extends('layouts.app')
 
 @section('content')
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <div class="container">
         <h2 class="f-list">フォロー中のユーザー</h2>
         @if ($followList->isEmpty())

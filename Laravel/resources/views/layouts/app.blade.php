@@ -33,7 +33,7 @@
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <li>
-                            <a class="dropdown-item nav-link rogout-btn"
+                            <a class="dropdown-item nav-link logout-btn"
                                 href="{{ route('logout') }}"onclick="event.preventDefault();
         document.getElementById('logout-form').submit();">
                                 {{ __('ログアウト') }}</a>

@@ -26,7 +26,8 @@
                 <form action="/follow/{{ $user_id }}" class="follow-form">
                     @csrf
                     @if ($isFollowing)
-                        <a class="btn btn-primary btn-unfollow" href="/follow/{{ $profile->id }}/unfollowing">フォロー中</a>
+                        <a class="btn btn-primary btn-unfollow"
+                            href="/follow/{{ $profile->id }}/unfollowing"onclick="return confirm('{{ $profile->name }}のフォローを解除しますか？')">フォロー中</a>
                     @else
                         <a class="btn btn-primary btn-follow" href="/follow/{{ $profile->id }}/following">フォロー</a>
                     @endif

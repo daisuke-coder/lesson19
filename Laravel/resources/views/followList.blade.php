@@ -7,11 +7,19 @@
         @if ($followList->isEmpty())
             <p class="error">フォローしているユーザーはいません。</p>
         @endif
-        @foreach ($followList as $followList)
-            <div class="user-list">
-                <p class="f-user"><a href="/profile/{{ $followList->id }}" class="f-user">{{ $followList->name }}</a></p>
-                <a class="btn btn-primary" href="/follow/{{ $followList->id }}/unfollowing">フォロー解除</a>
-            </div>
-        @endforeach
+        <div class="userlist">
+            @foreach ($followList as $followList)
+                <div class="user">
+                    <p class="name search-name"><a
+                            href="/profile/{{ $followList->id }}"class="name">{{ $followList->name }}</a>
+                    </p>
+                    <p class="pro-text">{{ $followList->profile }}</p>
+                    <div class="btn-box-follow">
+                        <a class="btn btn-primary btn-unfollow" href="/follow/{{ $followList->id }}/unfollowing"
+                            onclick="return confirm('{{ $followList->name }}のフォローを解除しますか？')">フォロー解除</a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
 @endsection

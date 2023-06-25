@@ -16,7 +16,7 @@ class PostsController extends Controller
     {
         $authUser=Auth::user()->name;
 
-        $list=DB::table('posts')->get();
+        $list=DB::table('posts')->orderby('updated_at','desc')->get();//新しい投稿が上から並ぶようにする。
         // $user=User::where('name',$list->name)
         // ->first();
         // $userId=Auth::id();

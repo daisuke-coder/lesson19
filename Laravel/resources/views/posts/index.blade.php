@@ -2,23 +2,29 @@
 
 @section('content')
     <div class="container">
-        <p class="c-btn"><a href="/create-form" class="btn">新規投稿</a></p>
-        <p class="s-btn"><a href="/search" class="btn fa fa-search"></a></p>
-        <h2 class="page-name">タイムライン</h2>
-        <div class="timeline">
-            @foreach ($list as $list)
-                <div class="posts">
-                    <p class="username"><a href="/profile/{{$list->user_id}}" class="username">{{ $list->name }}</a></p>
-                    <p class="tweet">{{ $list->post }}</p>
-                    <p class="time">{{ $list->created_at }}</p>
-                    @if ($authUser == $list->name)
-                        <p class="update"><a href="/post/{{ $list->id }}/update-form" class="btn-update">編集</a></p>
-                    @endif
-                    @if ($authUser == $list->name)
-                        <p class="delete"><a href="/post/{{ $list->id }}/delete" class="delete-btn">削除</a></p>
-                    @endif
-                </div>
-            @endforeach
+        <div class="info">
+            <h2 class="page-name">タイムライン</h2>
+            <div class="timeline">
+                @foreach ($list as $list)
+                    <div class="posts">
+                        <h3>
+                            <p class="username"><a href="/profile/{{ $list->user_id }}"
+                                    class="username">{{ $list->name }}</a>
+                        </h3>
+                        </p>
+                        <p class="tweet">{{ $list->post }}</p>
+                        <p class="time">{{ $list->created_at }}</p>
+                        <p class="post-edit">
+                            @if ($authUser == $list->name)
+                                <a href="/post/{{ $list->id }}/update-form" class="btn-update">編集</a>
+                            @endif
+                            @if ($authUser == $list->name)
+                                <a href="/post/{{ $list->id }}/delete" class="btn-delete"
+                                    onclick="return confirm('こちらの投稿を削除しますか？')">削除</a>
+                            @endif
+                        </p>
+                    </div>
+                @endforeach
+            </div>
         </div>
-    </div>
-@endsection
+    @endsection

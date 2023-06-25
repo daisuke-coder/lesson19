@@ -1,23 +1,350 @@
-.page-header {
-  text-align: center;
+* {
+    box-sizing: border-box;
 }
 
-.page-name {
-  text-align: center;
+/* リンクの下線削除 */
+a {
+    text-decoration: none;
+    color: #4169e1;
 }
 
-.posts {
-  margin: 10px auto;
-  border: 1px solid blue;
-  border-radius: 8px;
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f2f3f5;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+}
 
+/* bodyのリンク色変更対策 */
+.body-a {
+    color: #68a4d9;
 }
 
 .container {
-  width: 80%;
-  margin: 0 auto;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 160px;
+
 }
 
 footer {
-  text-align: center;
+    text-align: center;
+    margin: 10px auto;
+    border: 1px solid #484849;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* ヘッダー */
+
+header {
+    padding: 10px 4% 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 2px 5px 8px rgba(0, 0, 0, 0.25);
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
+}
+
+li {
+    margin: 0 0 0 40px;
+    font-size: 14px;
+}
+
+nav {
+    margin: 0 0 0 auto;
+}
+
+.s-btn {
+    margin-right: 60px;
+}
+
+/* WEBCRITTER */
+.page-header {
+    color: white;
+    text-decoration: none;
+
+}
+
+/* ログイン・新規登録 ログアウト */
+.nav-link {
+    color: white;
+    text-decoration: none;
+}
+
+.rogout-btn {
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    padding: 0 10px;
+    background-color: #736d71;
+    cursor: pointer;
+}
+
+
+
+/* -------------------------------------------------------------------------- */
+/* ユーザー登録関連の画面 */
+
+/* .card {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 4px;
+} */
+
+h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    line-height: 1.25;
+    font-weight: bold;
+    text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+
+/* 投稿ボックスサイズ */
+
+.form-group {
+    text-align: center;
+    padding-bottom: 20px;
+
+
+}
+
+.form-control {
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    height: 50px;
+    line-height: 50px;
+    padding: 16px 20px 0;
+    background-color: #c4c4c4;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+/* error表記を赤文字にする */
+.caution {
+    color: red;
+}
+
+/* 登録ボタン */
+.btn-submit {
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 85px;
+    background-color: #e50914;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* タイムライン */
+
+.posts {
+    margin: 10px auto;
+    border: 1px solid #484849;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+
+}
+
+.username {
+    text-align: left;
+    padding-left: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+.tweet {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.time {
+    text-align: right;
+    padding-right: 20px;
+}
+
+.post-edit {
+    text-align: right;
+    padding-right: 20px;
+}
+
+
+.btn-update {
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #4169e1;
+    cursor: pointer;
+    padding: 5px 20px;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.btn-delete {
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    background-color: red;
+    cursor: pointer;
+    padding: 5px 20px;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 新規投稿画面 */
+
+
+
+.tweetbox {
+
+    border: 0;
+    border-radius: 4px;
+    background-color: #c4c4c4;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.post-button {
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 85px;
+    background-color: #4169e1;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ユーザー検索 */
+.user {
+    display: flex;
+}
+
+.name {
+    width: 100%;
+    font-weight: bold;
+    text-align: left;
+}
+
+.pro-text {
+    width: 100%;
+    text-align: left;
+}
+
+.btn-box-follow {
+    width: 100%;
+    margin: auto;
+}
+
+.btn-follow {
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    padding: 0 40px;
+    background-color: #4169e1;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.btn-unfollow {
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    padding: 0 20px;
+    background-color: #e50914;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.s-text {
+    border: 0;
+    border-radius: 4px;
+    background-color: #c4c4c4;
+    color: rgba(0, 0, 0, 0.7);
+    height: 20px;
+}
+
+.user {
+    margin: 10px auto;
+    border: 1px solid #484849;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+
+}
+
+/* -------------------------------------------------------------------------- */
+/* プロフィール */
+.p-name {
+    text-align: left;
+}
+
+.f-list {
+    text-align: left;
+}
+
+.follow-list {
+    font-weight: bold;
+}
+
+.follower-list {
+    padding-left: 30px;
+    font-weight: bold;
+}
+
+.profile {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.edit-pro {
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #696969;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.edit {
+    padding-top: 20px;
+
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* プロフィール編集 */
+.form-name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.btn-submit {
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    padding: 0 40px;
+    background-color: #4169e1;
+    cursor: pointer;
+    font-size: 20px;
 }

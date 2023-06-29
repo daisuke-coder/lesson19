@@ -7,7 +7,7 @@
         <form method="GET" action="/search">
             <input type="text" name="search" placeholder="ユーザー名で検索" class="s-text"
                 value="@if (isset($search)) {{ $search }} @endif">
-            <button class=type="submit"><i class="fa fa-search"></i></button>
+            <button type="submit"><i class="fa fa-search"></i></button>
         </form>
         <div class="userlist">
             @if ($uList->isEmpty())

@@ -22,17 +22,6 @@
             @if (Auth::user()->id == $profile->id)
                 <p class="edit"><a href="/profile/edit-form/{{ $profile->id }}" class="edit-pro">プロフィールを編集</a></p>
             @endif
-            @if (Auth::user()->id != $profile->id)
-                <form action="/follow/{{ $user_id }}" class="follow-form">
-                    @csrf
-                    @if ($isFollowing)
-                        <a class="btn btn-primary btn-unfollow"
-                            href="/follow/{{ $profile->id }}/unfollowing"onclick="return confirm('{{ $profile->name }}のフォローを解除しますか？')">フォロー中</a>
-                    @else
-                        <a class="btn btn-primary btn-follow" href="/follow/{{ $profile->id }}/following">フォロー</a>
-                    @endif
-                </form>
-            @endif
 
         </div>
     </div>

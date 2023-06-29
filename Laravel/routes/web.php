@@ -54,3 +54,5 @@ Route::post('/profile/edit','ProfileController@edit');
 Route::get('/follow/{id}/following','FollowController@Follow');
 //フォロー解除
 Route::get('/follow/{id}/unfollowing','FollowController@unFollow');
+
+Route::get('/follow/{id}/list-unfollow','FollowController@unFollowList');

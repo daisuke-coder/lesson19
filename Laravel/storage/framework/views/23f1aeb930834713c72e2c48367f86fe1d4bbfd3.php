@@ -8,8 +8,8 @@
                         <h3>
                             <p class="username"><a href="/profile/<?php echo e($list->user_id); ?>"
                                     class="username"><?php echo e($list->name); ?></a>
+                            </p>
                         </h3>
-                        </p>
                         <p class="tweet"><?php echo e($list->post); ?></p>
                         <p class="time"><?php echo e($list->created_at); ?></p>
                         <p class="post-edit">

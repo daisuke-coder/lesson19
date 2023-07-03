@@ -76,7 +76,12 @@ class ProfileController extends Controller
       ->exists();
     }
 
-    return view('profile',compact('user_id','authUser','profile','followCount','followerCount','isFollowing'));
+    $profilePosts=DB::table('posts')
+    ->where('user_id',$user_id)
+    ->orderby('updated_at','desc')
+    ->get();
+
+    return view('profile',compact('user_id','authUser','profile','followCount','followerCount','isFollowing','profilePosts'));
   }
 
   public function follower(Request $request,$user_id)

@@ -23,6 +23,16 @@
                 <p class="edit"><a href="/profile/edit-form/{{ $profile->id }}" class="edit-pro">プロフィールを編集</a></p>
             @endif
 
+            <div class="profile-posts">
+                @foreach($profilePosts as $list)
+                <h3>
+                    <p class="username">{{$list->name}}</p>
+                </h3>
+                <p class="tweet">{{$list->post}}</p>
+                <p class="time">{{$list->created_at}}</p>
+                @endforeach
+            </div>
+
         </div>
     </div>
 @endsection

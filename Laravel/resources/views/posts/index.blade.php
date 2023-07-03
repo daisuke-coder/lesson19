@@ -10,8 +10,8 @@
                         <h3>
                             <p class="username"><a href="/profile/{{ $list->user_id }}"
                                     class="username">{{ $list->name }}</a>
+                            </p>
                         </h3>
-                        </p>
                         <p class="tweet">{{ $list->post }}</p>
                         <p class="time">{{ $list->created_at }}</p>
                         <p class="post-edit">

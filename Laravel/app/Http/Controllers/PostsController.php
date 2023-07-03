@@ -15,11 +15,19 @@ class PostsController extends Controller
     public function index(Request $request)
     {
         $authUser=Auth::user()->name;
+        $authUserId=Auth::user()->id;
+        $followId=DB::table('follows')
+        ->where('user_id',$authUserId)
+        ->pluck('followed_user_id')
+        ->toArray();
 
-        $list=DB::table('posts')->orderby('updated_at','desc')->get();//新しい投稿が上から並ぶようにする。
-        // $user=User::where('name',$list->name)
-        // ->first();
-        // $userId=Auth::id();
+        $list=DB::table('posts')
+        ->whereIn('user_id',array_merge($followId,[$authUserId]))
+        ->orderby('updated_at','desc')
+        ->get();
+        //新しい投稿が上から並ぶようにする。
+        // array_mergeで配列内にauthUserIdも追加する（ログインユーザーの投稿も表示する）
+
         return view('posts.index',compact('list','authUser'));
     }
 

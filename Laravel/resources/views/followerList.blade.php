@@ -15,7 +15,7 @@
                     </p>
                     <p class="pro-text">{{ $followerList->profile }}</p>
                 </div>
+            @endforeach
         </div>
-        @endforeach
     </div>
 @endsection

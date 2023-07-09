@@ -28,8 +28,9 @@
                 @else
                     <li class="nav-item s-btn"><a href="/create-form" class="btn nav-link">新規投稿</a></li>
                     <li class="nav-item s-btn"><a class="nav-link" href="/search" class="btn fa fa-search">ユーザー検索</a></li>
+                    <li class="nav-item"><a class="nav-link">ユーザー名: {{ Auth::user()->name }}</a></li>
                     <li class="nav-item"><a href="{{ route('profile', ['user_id' => Auth::user()->id]) }}"
-                            class="nav-link">{{ Auth::user()->name }}</a></li>
+                            class="nav-link logout-btn">マイページ</a></li>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <li>

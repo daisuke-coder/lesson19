@@ -64,7 +64,7 @@ class FollowController extends Controller
         ->pluck('user_id')
         ->toArray();
         $followList=DB::table('users')
-        ->whereIn('user_id',$fId)
+        ->whereIn('id',$fId)
         ->get();
         DB::table('follows')
         ->where('user_id', $authUser)

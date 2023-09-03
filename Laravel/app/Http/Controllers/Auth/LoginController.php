@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -50,4 +52,18 @@ class LoginController extends Controller
 
     return redirect('/login');
     }
+
+protected function validateLogin(Request $request)
+{
+    $request->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+    ], [
+        'email.required' => 'メールアドレスを入力してください。',
+        'email.email' => '正しいメールアドレスを入力してください。',
+        'password.required' => 'パスワードを入力してください。',
+    ]);
+}
+
+
 }

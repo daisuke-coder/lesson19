@@ -15,7 +15,9 @@ class PostsController extends Controller
     public function index(Request $request)
     {
         $authUser=Auth::user()->name;
+        // 自分の投稿を判断するため
         $authUserId=Auth::user()->id;
+        // ログインユーザーのIDを取得
         $followId=DB::table('follows')
         ->where('user_id',$authUserId)
         ->pluck('followed_user_id')

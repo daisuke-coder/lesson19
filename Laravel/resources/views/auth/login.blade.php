@@ -21,11 +21,6 @@
                                         value="{{ old('email') }}" required autocomplete="email" autofocus
                                         placeholder="メールアドレス">
 
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
                                 </div>
                             </div>
 
@@ -38,7 +33,7 @@
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="current-password" placeholder="パスワード">
 
-                                    @error('password')
+                                    @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -65,12 +60,6 @@
                                         {{ __('ログイン') }}
                                     </button>
 
-                                    @if (Route::has('password.request'))
-                                        <p> <a class="btn btn-link body-a" href="{{ route('password.request') }}">
-                                                {{ __('パスワードを忘れた方はこちら') }}
-                                            </a></p>
-                                    @endif
-                                </div>
                             </div>
                         </form>
                     </div>

@@ -1,3 +1,6 @@
 <?php
 
-return require base_path('vendor/laravel/framework/src/Illuminate/Validation/resources/lang/ja/auth.php');
+return [
+    'failed' => 'メールアドレスとパスワードが一致しません。',
+    'throttle' => 'ログイン試行回数が制限を超えました。:seconds 秒後に再試行してください。',
+];

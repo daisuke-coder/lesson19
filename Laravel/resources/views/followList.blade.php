@@ -14,14 +14,15 @@
                             href="/profile/{{ $followList->id }}"class="name">{{ $followList->name }}</a>
                     </p>
                     <p class="pro-text">{{ $followList->profile }}</p>
-                    @if($user_id == Auth::user()->id)
-                    <div class="btn-box-follow">
-                        <a href="/follow/{{$followList->id}}/list-unfollow" class="btn btn-primary btn-unfollow" onclick="return confirm('{{ $followList->name }}のフォローを解除しますか？')">フォロー解除</a>
-                    </div>
+                    @if ($user_id == Auth::user()->id)
+                        <div class="btn-box-follow">
+                            <a href="/follow/{{ $followList->id }}/list-unfollow" class="btn btn-primary btn-unfollow"
+                                onclick="return confirm('{{ $followList->name }}のフォローを解除しますか？')">フォロー解除</a>
+                        </div>
                     @endif
-                    </div>
                 </div>
             @endforeach
         </div>
+    </div>
     </div>
 @endsection

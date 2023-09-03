@@ -192,25 +192,27 @@ h2 {
 
 
 .btn-update {
-    border: 0;
+    border: solid;
     border-radius: 4px;
-    color: #fff;
-    background-color: #4169e1;
+    color: black;
+    background-color: #f2f3f5;
     cursor: pointer;
     padding: 5px 20px;
     margin-left: 20px;
     font-weight: bold;
+    border-color: black;
 }
 
 .btn-delete {
-    border: 0;
+    border: solid;
     border-radius: 4px;
     color: #fff;
-    background-color: red;
+    background-color: #474a4d;
     cursor: pointer;
     padding: 5px 20px;
     margin-left: 20px;
     font-weight: bold;
+    border-color: #474a4d;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -261,21 +263,22 @@ h2 {
 }
 
 .btn-follow {
-    border: 0;
+    border: solid;
     border-radius: 4px;
-    color: #fff;
+    color: black;
     padding: 0 30px;
-    background-color: #4169e1;
+    background-color: #f2f3f5;
     cursor: pointer;
     font-size: 20px;
 }
 
 .btn-unfollow {
-    border: 0;
+    border: solid;
     border-radius: 4px;
+    border-color: #474a4d;
     color: #fff;
     padding: 0 20px;
-    background-color: #e50914;
+    background-color: #474a4d;
     cursor: pointer;
     font-size: 20px;
 }
@@ -299,6 +302,17 @@ h2 {
 
 /* -------------------------------------------------------------------------- */
 /* プロフィール */
+.profile-content {
+    display: flex;
+    justify-content: start;
+    padding-bottom: 80px;
+
+}
+
+.profile-about {
+    padding-left: 200px;
+}
+
 .p-name {
     text-align: left;
 }
